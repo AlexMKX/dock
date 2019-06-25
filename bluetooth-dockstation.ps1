@@ -32,10 +32,10 @@ function Check-Dock {
 	if ($docked)  {
 		if (Get-PnpDevice -PresentOnly -Status 'OK' | Where-Object {$_.Name -eq $dock_audio} )
 		{
-			$audio = '"'+$dock_device+'"'
+			$audio = '"'+$dock_audio+'"'
 			$params = "/SetDefault " + $audio + " 1"
 			Start-Process -NoNewWindow "SoundVolumeView.exe" -ArgumentList $params
-			$audio = '"'+$dock_device+'"'
+			$audio = '"'+$dock_audio+'"'
 			$params = "/SetDefault " + $audio + " 0"
 			Start-Process -NoNewWindow "SoundVolumeView.exe" -ArgumentList $params
 			$audio = '"'+$dock_comm_device+'"'
